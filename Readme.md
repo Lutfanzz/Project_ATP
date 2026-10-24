@@ -3,6 +3,7 @@ An electricity provider needs a program to calculate household electricity bills
 consumption and customer categories. The system can store information such as customer
 name, customer category, daily electricity usage for 7 days, total usage, and electricity bill. The
 maximum of households that can be stored is 20.
+
 Minimum requirements:
 • Minimum requirements:
 • The system can perform household registration and record electricity consumption for 7
