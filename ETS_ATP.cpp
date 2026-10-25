@@ -64,20 +64,17 @@ int main() {
     return 0;
 }
 
-// ==========================================
-// 4. IMPLEMENTASI FUNGSI
-// ==========================================
 
 // Fungsi untuk menginput data pelanggan baru
 void tambahPelanggan(Pelanggan data[], int &jumlah) {
-    cout << "\n--- INPUT DATA PELANGGAN BARU ---\n";
+    cout << "INPUT DATA PELANGGAN BARU\n";
     cin.ignore(); // Membersihkan buffer enter dari input sebelumnya
-    cout << "Nama Pelanggan          : ";
+    cout << "Nama Pelanggan: ";
     getline(cin, data[jumlah].nama);
 
     bool kategoriValid = false;
     while (!kategoriValid) {
-        cout << "Kategori (low/mid/high) : ";
+        cout << "Kategori (low/mid/high): ";
         cin >> data[jumlah].kategori;
         if (data[jumlah].kategori == "low" || data[jumlah].kategori == "mid" || data[jumlah].kategori == "high") {
             kategoriValid = true;
@@ -88,7 +85,7 @@ void tambahPelanggan(Pelanggan data[], int &jumlah) {
 
     cout << "Masukkan pemakaian listrik harian (kWh) selama 7 hari:\n";
     for (int i = 0; i < 7; i++) {
-        cout << "Hari ke-" << (i + 1) << " : ";
+        cout << "Hari ke-" << (i + 1) << ": ";
         cin >> data[jumlah].pemakaianHarian[i];
     }
 
