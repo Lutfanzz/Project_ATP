@@ -116,20 +116,15 @@ double hitungTotal7Hari(double harian[]) {
 double hitungTagihanProgresif(double estimasiBulanan) {
     double tagihan = 0;
     double sisa = estimasiBulanan;
-
-    // Tarif > 200 kWh (Rp 2.000/kWh)
     if (sisa > 200) {
         tagihan += (sisa - 200) * 2000;
-        sisa = 200; // Sisa dikurangi 200, lanjut ke blok berikutnya
+        sisa = 200; 
     }
-    
-    // Tarif 101 - 200 kWh (Rp 1.500/kWh)
     if (sisa > 100) {
         tagihan += (sisa - 100) * 1500;
-        sisa = 100; // Sisa dikurangi 100, lanjut ke blok berikutnya
+        sisa = 100; 
     }
     
-    // Tarif 0 - 100 kWh (Rp 1.000/kWh)
     if (sisa > 0) {
         tagihan += sisa * 1000;
     }
@@ -142,11 +137,11 @@ double hitungDiskon(double tagihanAwal, string kategori) {
     double diskonPersen = 0;
 
     if (kategori == "low") {
-        diskonPersen = 0.20; // 20%
+        diskonPersen = 0.20; 
     } else if (kategori == "mid") {
-        diskonPersen = 0.10; // 10%
+        diskonPersen = 0.10; 
     } else if (kategori == "high") {
-        diskonPersen = 0.00; // 0%
+        diskonPersen = 0.00; 
     }
 
     double nominalDiskon = tagihanAwal * diskonPersen;
