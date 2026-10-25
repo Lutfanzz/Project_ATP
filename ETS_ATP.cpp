@@ -5,10 +5,7 @@
 #include <iomanip> // Untuk merapikan output (setw)
 
 using namespace std;
-
-// ==========================================
 // 1. DEFINISI STRUKTUR DATA (STRUCT)
-// ==========================================
 struct Pelanggan {
     string nama;
     string kategori; // "Low-income", "Middle-income", "High-income"
@@ -21,9 +18,7 @@ struct Pelanggan {
 // Batas maksimal pelanggan
 const int MAX_PELANGGAN = 20;
 
-// ==========================================
 // 2. DEKLARASI FUNGSI (PROTOTYPE)
-// ==========================================
 void tambahPelanggan(Pelanggan data[], int &jumlah);
 double hitungTotal7Hari(double harian[]);
 double hitungTagihanProgresif(double estimasiBulanan);
@@ -31,9 +26,7 @@ double hitungDiskon(double tagihanAwal, string kategori);
 int cariHariTertinggi(double harian[]);
 void tampilkanLaporan(Pelanggan data[], int jumlah);
 
-// ==========================================
 // 3. FUNGSI MAIN (PROGRAM UTAMA)
-// ==========================================
 int main() {
     Pelanggan dataPelanggan[MAX_PELANGGAN];
     int jumlahPelanggan = 0;
