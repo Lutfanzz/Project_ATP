@@ -117,20 +117,15 @@ double hitungTotal7Hari(double harian[]) {
 double hitungTagihanProgresif(double estimasiBulanan) {
     double tagihan = 0;
     double sisa = estimasiBulanan;
-    if (sisa > 200) {
-        tagihan += (sisa - 200) * 2000;
-        sisa = 200; 
-    }
-    if (sisa > 100) {
-        tagihan += (sisa - 100) * 1500;
-        sisa = 100; 
-    }
-    
-    if (sisa > 0) {
-        tagihan += sisa * 1000;
-    }
 
-    return tagihan;
+    // notes
+    if (sisa <= 100){
+        return tagihan += sisa * 1000;
+    }else if(sisa <= 200){
+        return tagihan +=  (100 * 1000) + ((sisa - 100) * 1500);
+    }else{
+        return tagihan += (100 * 1000) + (100 * 1500) + ((sisa - 200) * 2000);
+    }
 }
 
 // Fungsi menghitung diskon berdasarkan kategori
