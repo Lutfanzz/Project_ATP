@@ -67,7 +67,7 @@ int main() {
 // Fungsi untuk menginput data pelanggan baru
 void tambahPelanggan(Pelanggan data[], int &jumlah) {
     cout << "INPUT DATA PELANGGAN BARU\n";
-    cin.ignore(); // Membersihkan buffer enter dari input sebelumnya
+    cin.ignore(); 
     cout << "Nama Pelanggan: ";
     getline(cin, data[jumlah].nama);
 
@@ -82,6 +82,7 @@ void tambahPelanggan(Pelanggan data[], int &jumlah) {
         }
     }
 
+    // Input pemakaian harian selama 7 hari
     cout << "Masukkan pemakaian listrik harian (kWh) selama 7 hari:\n";
     for (int i = 0; i < 7; i++) {
         cout << "Hari ke-" << (i + 1) << ": ";
