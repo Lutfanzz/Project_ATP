@@ -22,6 +22,7 @@ void tampilkanLaporan(Pelanggan data[], int jumlah);
 // Batas maksimal pelanggan
 const int MAX_PELANGGAN = 20;
 
+//BAGIAN 3 
 // Menghitung total penggunaan listrik selama 7 hari
 int totalListrik(int hari[]) {
     int total = 0;
