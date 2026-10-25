@@ -2,7 +2,6 @@
 //==================
 #include <iostream>
 #include <string>
-#include <iomanip> // Untuk merapikan output (setw)
 
 using namespace std;
 // 1. DEFINISI STRUKTUR DATA (STRUCT)
@@ -172,24 +171,17 @@ void tampilkanLaporan(Pelanggan data[], int jumlah) {
         return;
     }
 
-    cout << "\n==================================================================================================\n";
-    cout << "                                    LAPORAN TAGIHAN LISTRIK                                      \n";
-    cout << "==================================================================================================\n";
-    cout << left << setw(15) << "Nama" 
-         << setw(10) << "Kategori" 
-         << setw(12) << "Total 7 Hari" 
-         << setw(15) << "Est. Bulanan" 
-         << setw(12) << "Hari Tertinggi" 
-         << setw(15) << "Tagihan Akhir" << endl;
-    cout << "--------------------------------------------------------------------------------------------------\n";
+    cout << "\n========== LAPORAN TAGIHAN LISTRIK ==========\n";
 
     for (int i = 0; i < jumlah; i++) {
-        cout << left << setw(15) << data[i].nama 
-             << setw(10) << data[i].kategori 
-             << setw(12) << fixed << setprecision(1) << data[i].totalPemakaian 
-             << setw(15) << data[i].estimasiBulanan 
-             << "Hari ke-" << setw(4) << cariHariTertinggi(data[i].pemakaianHarian)
-             << "Rp " << setw(12) << fixed << setprecision(2) << data[i].tagihanAkhir << endl;
+        cout << "\nData pelanggan ke-" << (i + 1) << endl;
+        cout << "Nama            : " << data[i].nama << endl;
+        cout << "Kategori        : " << data[i].kategori << endl;
+        cout << "Total 7 hari    : " << data[i].totalPemakaian << " kWh" << endl;
+        cout << "Estimasi bulan  : " << data[i].estimasiBulanan << " kWh" << endl;
+        cout << "Hari tertinggi  : Hari ke-"
+             << cariHariTertinggi(data[i].pemakaianHarian) << endl;
+        cout << "Tagihan akhir   : Rp " << data[i].tagihanAkhir << endl;
+        cout << "----------------------------------------\n";
     }
-    cout << "==================================================================================================\n";
 }
