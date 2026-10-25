@@ -11,7 +11,7 @@ using namespace std;
 // ==========================================
 struct Pelanggan {
     string nama;
-    string kategori; 
+    string kategori; // "Low-income", "Middle-income", "High-income"
     double pemakaianHarian[7];
     double totalPemakaian;
     double estimasiBulanan;
