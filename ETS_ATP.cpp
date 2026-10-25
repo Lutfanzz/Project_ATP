@@ -1,23 +1,22 @@
 //A'dhomu Ni'amillah
-//==================
 #include <iostream>
 #include <string>
 
 using namespace std;
-// 1. DEFINISI STRUKTUR DATA (STRUCT)
+
 struct Pelanggan {
     string nama;
-    string kategori; // "Low-income", "Middle-income", "High-income"
+    string kategori; 
     double pemakaianHarian[7];
     double totalPemakaian;
     double estimasiBulanan;
     double tagihanAkhir;
 };
 
-// Batas maksimal pelanggan
+//maksimal pelanggan
 const int MAX_PELANGGAN = 20;
 
-// 2. DEKLARASI FUNGSI (PROTOTYPE)
+//deklarasi fungsi prototype
 void tambahPelanggan(Pelanggan data[], int &jumlah);
 double hitungTotal7Hari(double harian[]);
 double hitungTagihanProgresif(double estimasiBulanan);
@@ -25,7 +24,7 @@ double hitungDiskon(double tagihanAwal, string kategori);
 int cariHariTertinggi(double harian[]);
 void tampilkanLaporan(Pelanggan data[], int jumlah);
 
-// 3. FUNGSI MAIN (PROGRAM UTAMA)
+
 int main() {
     Pelanggan dataPelanggan[MAX_PELANGGAN];
     int jumlahPelanggan = 0;
@@ -64,7 +63,7 @@ int main() {
 }
 
 
-// Fungsi untuk menginput data pelanggan baru
+//fungsi untuk menginput data pelanggan baru
 void tambahPelanggan(Pelanggan data[], int &jumlah) {
     cout << "INPUT DATA PELANGGAN BARU\n";
     cin.ignore(); 
@@ -82,21 +81,21 @@ void tambahPelanggan(Pelanggan data[], int &jumlah) {
         }
     }
 
-    // Input pemakaian harian selama 7 hari
+    //input pemakaian harian selama 7 hari
     cout << "Masukkan pemakaian listrik harian (kWh) selama 7 hari:\n";
     for (int i = 0; i < 7; i++) {
         cout << "Hari ke-" << (i + 1) << ": ";
         cin >> data[jumlah].pemakaianHarian[i];
     }
 
-    // Hitung total dan estimasi saat input selesai
+    //hitung total dan estimasi saat input selesai
     data[jumlah].totalPemakaian = hitungTotal7Hari(data[jumlah].pemakaianHarian);
     
-    // Rata-rata harian * 30 hari
+    //rata-rata harian * 30 hari
     double rataRata = data[jumlah].totalPemakaian / 7.0;
     data[jumlah].estimasiBulanan = rataRata * 30.0;
 
-    // Hitung tagihan
+    //hitung tagihan
     double tagihanAwal = hitungTagihanProgresif(data[jumlah].estimasiBulanan);
     data[jumlah].tagihanAkhir = hitungDiskon(tagihanAwal, data[jumlah].kategori);
 
