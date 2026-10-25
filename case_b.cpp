@@ -22,6 +22,61 @@ void tampilkanLaporan(Pelanggan data[], int jumlah);
 // Batas maksimal pelanggan
 const int MAX_PELANGGAN = 20;
 
+// Menghitung total penggunaan listrik selama 7 hari
+int totalListrik(int hari[]) {
+    int total = 0;
+
+    for (int i = 0; i < 7; i++) {
+        total += hari[i];
+    }
+
+    return total;
+}
+
+// Menghitung rata-rata penggunaan listrik selama 7 hari
+float averageListrik(int total) {
+    return total / 7.0;
+}
+
+// Menghitung estimasi penggunaan listrik bulanan
+float listrikBulanan(int hari[]) {
+    return averageListrik(totalListrik(hari)) * 30;
+}
+
+// Menghitung tarif progresif
+float progresifTarif(int hari[]) {
+    float bulanan = listrikBulanan(hari);
+
+    if (bulanan <= 100) {
+        return bulanan * 1000;
+    } 
+    else if (bulanan <= 200) {
+        return (100 * 1000) + ((bulanan - 100) * 1500);
+    } 
+    else {
+        return (100 * 1000) + (100 * 1500)
+             + ((bulanan - 200) * 2000);
+    }
+}
+
+// Menghitung diskon pelanggan
+float diskonPelanggan(float biaya, int kategori) {
+    if (kategori == 1) {
+        return biaya * 0.20;
+    } 
+    else if (kategori == 2) {
+        return biaya * 0.10;
+    } 
+    else {
+        return 0;
+    }
+}
+
+//Menghitung Final Bills
+float finalBill(float biaya, float diskon) {
+    return biaya - diskon;
+}
+
 //fungsi main
 int main() {
     Pelanggan dataPelanggan[MAX_PELANGGAN];
@@ -109,65 +164,4 @@ int cariHariTertinggi(double harian[]){
     }
 
     return indeksMaks + 1;
-}
-
-// Menghitung total penggunaan listrik selama 7 hari
-int totalListrik(int hari[]) {
-    int total = 0;
-
-    for (int i = 0; i < 7; i++) {
-        total += hari[i];
-    }
-
-    return total;
-}
-
-// Menghitung rata-rata penggunaan listrik selama 7 hari
-float averageListrik(int total) {
-    return total / 7.0;
-}
-
-// Menghitung estimasi penggunaan listrik bulanan
-float listrikBulanan(int hari[]) {
-    return averageListrik(totalListrik(hari)) * 30;
-}
-
-// Menghitung tarif progresif
-float progresifTarif(int hari[]) {
-    float bulanan = listrikBulanan(hari);
-
-    if (bulanan <= 100) {
-        return bulanan * 1000;
-    } 
-    else if (bulanan <= 200) {
-        return (100 * 1000) + ((bulanan - 100) * 1500);
-    } 
-    else {
-        return (100 * 1000) + (100 * 1500)
-             + ((bulanan - 200) * 2000);
-    }
-}
-
-// Menghitung diskon pelanggan
-float diskonPelanggan(float biaya, int kategori) {
-    if (kategori == 1) {
-        return biaya * 0.20;
-    } 
-    else if (kategori == 2) {
-        return biaya * 0.10;
-    } 
-    else {
-        return 0;
-    }
-}
-
-//Menghitung Final Bills
-float finalBill(float biaya, float diskon) {
-    return biaya - diskon;
-}
-
-int main(){
-
-
-return 0;
 }
