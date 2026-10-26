@@ -1,4 +1,3 @@
-//A'dhomu Ni'amillah
 #include <iostream>
 #include <string>
 
